@@ -1,0 +1,118 @@
+.parentTaskBox .firstElement{
+    position: relative;
+    filter: blur(40px);
+}
+.parentTaskBox .firstElement .child-one{
+    position: absolute;
+    background-color:#27CDF1;
+    height: 546px;
+    width: 556px;
+    top: 5px;
+    left:100px
+}
+.parentTaskBox .firstElement .child-two{
+    position: absolute;
+    background-color:#F7AE1F;
+    height: 365px;
+    width: 365px;
+    top: -55px;
+    right:156px;
+}
+.parentTaskBox .firstElement .child-three{
+    position: absolute;
+    background-color:#B0EE2C;
+    height: 297px;
+    width: 297px;
+    bottom: -700px;
+    left:300px
+}
+.parentTaskBox .firstElement .child-four{
+    position: absolute;
+    background-color:#EE3DDD;
+    height: 241px;
+    width: 241px;
+    bottom: -680px;
+    right:316px
+}
+.parentTaskBox .secondElement .secondElementChild .topBox .logoutButton .logoutIcon{
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+}
+.parentTaskBox .secondElement .secondElementChild .topBox .logoutButton .logoutIcon{
+    color: #000000;
+}
+.secondElement{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 700px;
+    padding: 10px;
+}
+.secondElement .secondElementChild{
+    border: 1px solid black;
+    border-radius: 16px;
+    height: 700px;
+    position: relative;
+    background-color: #ffffff54;
+    width: 25%;
+    padding: 10px;
+}
+.secondElement .secondElementChild .topBox{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+.secondElement .secondElementChild .topBox .userLogo{
+    width: 60px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: rgb(182, 180, 180);
+}
+.secondElement .secondElementChild .topBox .userLogo{
+       display: flex;
+       justify-content: center;
+       padding-top: 17px;
+       font-size: 30px;
+       color: white;
+}
+.secondElement .taskBox{
+    border: 1px solid black;
+    border-radius: 16px;
+    height: 700px;
+    width: 700px;
+    position: relative;
+    background-color: #ffffff54;
+    width: 70%;
+    padding: 10px;
+    
+}
+.secondElement .secondElementChild .menuLink{
+    margin-bottom: 9px;
+    width: 90%;
+    height: 35px;
+    border-radius: 10px;
+    padding: 6px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    
+}
+.secondElement .secondElementChild .inputText{
+    margin-bottom: 9px;
+    width: 90%;
+    height: 35px;
+    border-radius: 10px;
+    padding: 2px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    padding: 6px;
+    
+}
+.secondElement .secondElementChild .menuLink a{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #000000;
+
+}
