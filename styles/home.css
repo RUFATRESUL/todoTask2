@@ -124,7 +124,11 @@
     padding: 6px;
     
 }
-.secondElement .secondElementChild .menuLink{
+.secondElement .secondElementChild .linkBox{
+    text-decoration: none;
+}
+
+.secondElement .secondElementChild .linkBox .menuLink{
     margin-bottom: 9px;
     width: 90%;
     height: 35px;
@@ -132,15 +136,14 @@
     padding: 6px;
     background-color: #ffffff;
     border: 1px solid black; 
-}
-.secondElement .secondElementChild .menuLink a{
-    text-decoration: none;
     font-weight: bold;
     font-size: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #000000;
+    text-decoration: none;
 
 }
+
 .parentTaskBox .secondElement .taskBox .enterTask{
     display: flex;
     justify-content: center;
