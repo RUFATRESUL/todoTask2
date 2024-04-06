@@ -76,7 +76,7 @@
         const userTitle = document.getElementById("userTitle");
         userTitle.textContent = user.username;
     }
-    const assignedTasks = localStorage.getItem("assignedTasks");
+    const assignedTasks = localStorage.getItem("assigned_" + user.username);
     if(assignedTasks){
         const taskList = document.getElementById("taskList");
         taskList.innerHTML = assignedTasks;
@@ -106,6 +106,12 @@
                 const taskHTML = `<div>${newTask} <button onclick="deleteTask(this.parentNode)">Delete</button></div>`;
                 const taskList = document.getElementById("taskList");
                 taskList.insertAdjacentHTML("beforeend", taskHTML);
+                // localStorage.setItem("assignedTasks", taskList.innerHTML);
+                const user = JSON.parse(localStorage.getItem('user'));
+            if (user) {
+                const tasks = taskList.innerHTML;
+                localStorage.setItem("assigned_" + user.username, tasks);
+             }
                 localStorage.setItem("assignedTasks", taskList.innerHTML);
                 newTaskInput.value = "";
             }

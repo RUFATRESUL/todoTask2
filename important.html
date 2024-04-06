@@ -76,7 +76,7 @@
         const userTitle = document.getElementById("userTitle");
         userTitle.textContent = user.username;
     }
-    const importTasks = localStorage.getItem("importTasks");
+    const importTasks = localStorage.getItem("import_" + user.username);
     if(importTasks){
         const taskList = document.getElementById("taskList");
         taskList.innerHTML = importTasks;
@@ -105,6 +105,11 @@
                 const taskHTML = `<div>${newTask} <button onclick="deleteTask(this.parentNode)">Delete</button></div>`;
                 const taskList = document.getElementById("taskList");
                 taskList.insertAdjacentHTML("beforeend", taskHTML);
+                const user = JSON.parse(localStorage.getItem('user'));
+            if (user) {
+                const tasks = taskList.innerHTML;
+                localStorage.setItem("import_" + user.username, tasks);
+             }
                 localStorage.setItem("importTasks", taskList.innerHTML);
                 newTaskInput.value = "";
             }

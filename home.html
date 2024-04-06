@@ -72,7 +72,7 @@
         const userTitle = document.getElementById("userTitle");
         userTitle.textContent = user.username;
     }
-    const savedTasks = localStorage.getItem("savedTasks");
+    const savedTasks = localStorage.getItem("tasks_" + user.username);
     if (savedTasks) {
         const taskList = document.getElementById("taskList");
         taskList.innerHTML = savedTasks;
@@ -101,6 +101,11 @@
                 const taskHTML = `<div>${newTask} <button onclick="deleteTask(this.parentNode)">Delete</button></div>`;
                 const taskList = document.getElementById("taskList");
                 taskList.insertAdjacentHTML("beforeend", taskHTML);
+                const user = JSON.parse(localStorage.getItem('user'));
+            if (user) {
+                const tasks = taskList.innerHTML;
+                localStorage.setItem("tasks_" + user.username, tasks);
+             }
                 localStorage.setItem("savedTasks", taskList.innerHTML);
                 newTaskInput.value = "";
             }
@@ -109,7 +114,12 @@
         function deleteTask(taskElement) {
             taskElement.remove();
             const taskList = document.getElementById("taskList");
-            localStorage.setItem("savedTasks", taskList.innerHTML);
+            // localStorage.setItem("savedTasks", taskList.innerHTML);
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user) {
+            const tasks = taskList.innerHTML;
+            localStorage.setItem("tasks_" + user.username, tasks);
+    }
         }
     </script>
 </body>
