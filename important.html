@@ -19,7 +19,7 @@
             <div class="secondElementChild">
                 <div class="topBox">
                     <div class="userLogo"><i class="fa-solid fa-user"></i></div>
-                    <h1 class="titleText">Rashad Musayev</h1>
+                    <h1 class="titleText" id="userTitle"></h1>
                     <a href="/register.html" class="logoutButton">
                         <div class="logoutIcon"><i class="fa-solid fa-arrow-right-from-bracket"></i></div>
                     </a>
@@ -59,13 +59,34 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const importTasks = localStorage.getItem("importTasks");
-            if (importTasks) {
-                const taskList = document.getElementById("taskList");
-                taskList.innerHTML = importTasks;
+          document.addEventListener("DOMContentLoaded", function() {
+    const categories = ["My Day", "Important", "Planned", "Assigned to me"];
+    const user = JSON.parse(localStorage.getItem('user'))
+    if (user) {
+        const userTitle = document.getElementById("userTitle");
+        userTitle.textContent = user.username;
+    }
+    const importTasks = localStorage.getItem("importTasks");
+    if(importTasks){
+        const taskList = document.getElementById("taskList");
+        taskList.innerHTML = importTasks;
+    }
+    const searchInput = document.querySelector(".search .inputText");
+    const menuLinks = document.querySelectorAll(".menuLink");
+
+    searchInput.addEventListener("input", function() {
+        const searchText = this.value.trim().toLowerCase();
+        
+        menuLinks.forEach(function(menuLink) {
+            const categoryText = menuLink.textContent.toLowerCase();
+            if (categoryText.includes(searchText)) {
+                menuLink.style.display = "block";
+            } else {
+                menuLink.style.display = "none";
             }
         });
+    });
+});
 
         function addTask() {
             const newTaskInput = document.getElementById("newTaskInput");

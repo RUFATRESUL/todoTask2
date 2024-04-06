@@ -42,33 +42,6 @@
 .parentTaskBox .secondElement .secondElementChild .topBox .logoutButton .logoutIcon{
     color: #000000;
 }
-.parentTaskBox .secondElement .secondElementChild .search{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 9px;
-}
-.parentTaskBox .secondElement .secondElementChild .search .inputText{
-    width: 90%;
-    height: 35px;
-    border-radius: 10px 0px 0px 10px;
-    background-color: #ffffff;
-    border: 1px solid black;
-    padding: 6px;
-    border-right: none;
-    outline: none;
-}
-.parentTaskBox .secondElement .secondElementChild .search div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 6%;
-    height: 35px;
-    border-radius: 0px 10px 10px 0px;
-    background-color: #ffffff;
-    border: 1px solid black;
-    padding: 6px;
-    border-left: none;
-}
 .secondElement{
     display: flex;
     justify-content: space-between;
@@ -103,6 +76,33 @@
        font-size: 30px;
        color: white;
 }
+.parentTaskBox .secondElement .secondElementChild .search{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 9px;
+}
+.parentTaskBox .secondElement .secondElementChild .search .inputText{
+    width: 90%;
+    height: 35px;
+    border-radius: 10px 0px 0px 10px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    padding: 6px;
+    border-right: none;
+    outline: none;
+}
+.parentTaskBox .secondElement .secondElementChild .search div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6%;
+    height: 35px;
+    border-radius: 0px 10px 10px 0px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    padding: 6px;
+    border-left: none;
+}
 .secondElement .taskBox{
     border: 1px solid black;
     border-radius: 16px;
@@ -111,19 +111,9 @@
     position: relative;
     background-color: #ffffff54;
     width: 70%;
-    padding: 10px;
-    
+    padding: 10px; 
 }
-.secondElement .secondElementChild .inputText{
-    margin-bottom: 9px;
-    width: 90%;
-    height: 35px;
-    border-radius: 10px;
-    background-color: #ffffff;
-    border: 1px solid black;
-    padding: 6px;
-    
-}
+
 .secondElement .secondElementChild .menuLink{
     margin-bottom: 9px;
     width: 90%;
@@ -131,7 +121,19 @@
     border-radius: 10px;
     padding: 6px;
     background-color: #ffffff;
-    border: 1px solid black; 
+    border: 1px solid black;
+    
+}
+.secondElement .secondElementChild .inputText{
+    margin-bottom: 9px;
+    width: 90%;
+    height: 35px;
+    border-radius: 10px;
+    padding: 2px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    padding: 6px;
+    
 }
 .secondElement .secondElementChild .menuLink a{
     text-decoration: none;

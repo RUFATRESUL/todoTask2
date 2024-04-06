@@ -30,18 +30,28 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                 </div>
-                <div class="menuLink">
-                    <a href="/home.html">My Day</a>
-                </div>
-                <div class="menuLink">
-                    <a href="/important.html">Important</a>
-                </div>
-                <div class="menuLink">
-                    <a href="/planned.html">Planned</a>
-                </div>
-                <div class="menuLink">
-                    <a href="/assigned.html">Assigned to me</a>
-                </div>
+                <a href="/home.html">
+                    <div class="menuLink">
+                        <a href="/home.html">My Day</a>
+                    </div>
+                </a>
+                <a href="/important.html">
+                    <div class="menuLink">
+                        <a href="/important.html">Important</a>
+                    </div>
+                </a>
+                <a href="planned.html">
+
+                    <div class="menuLink">
+                        <a href="/planned.html">Planned</a>
+                    </div>
+                </a>
+                <a href="assigned.html">
+
+                    <div class="menuLink">
+                        <a href="/assigned.html">Assigned to me</a>
+                    </div>
+                </a>
             </div>
             <div class="taskBox">
                 <h1>My Day</h1>
@@ -55,19 +65,35 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const savedTasks = localStorage.getItem("savedTasks");
-            if (savedTasks) {
-                const taskList = document.getElementById("taskList");
-                taskList.innerHTML = savedTasks;
-            }
-
-            const username = localStorage.getItem("username");
-            if (username) {
-            const userTitle = document.getElementById("userTitle");
-            userTitle.textContent = username;
+          document.addEventListener("DOMContentLoaded", function() {
+    const categories = ["My Day", "Important", "Planned", "Assigned to me"];
+    const user = JSON.parse(localStorage.getItem('user'))
+    if (user) {
+        const userTitle = document.getElementById("userTitle");
+        userTitle.textContent = user.username;
     }
+    const savedTasks = localStorage.getItem("savedTasks");
+    if (savedTasks) {
+        const taskList = document.getElementById("taskList");
+        taskList.innerHTML = savedTasks;
+    }
+   
+    const searchInput = document.querySelector(".search .inputText");
+    const menuLinks = document.querySelectorAll(".menuLink");
+
+    searchInput.addEventListener("input", function() {
+        const searchText = this.value.trim().toLowerCase();
+        
+        menuLinks.forEach(function(menuLink) {
+            const categoryText = menuLink.textContent.toLowerCase();
+            if (categoryText.includes(searchText)) {
+                menuLink.style.display = "block";
+            } else {
+                menuLink.style.display = "none";
+            }
         });
+    });
+});
 
         function addTask() {
             const newTaskInput = document.getElementById("newTaskInput");

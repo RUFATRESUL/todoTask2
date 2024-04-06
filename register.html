@@ -23,7 +23,7 @@
                 <a href="#">
                     <button onclick="register()" class="submitButton">Register</button>
                 </a>
-                <p>Have an account? <a href="login.html" class="login">Login</a> <br>or continue as a <a href="#" class="login">Guest</a></p>
+                <p>Have an account? <a href="login.html" class="login">Login</a> <br>or continue as a <a href="/guest.html" class="login">Guest</a></p>
 
             </div>
         </div>
@@ -38,9 +38,9 @@
                 alert("Please enter both username and password.");
                 return;
             }
-            localStorage.removeItem("users");
-            var users = [];
-            users.push({ username: username, password: password });
+            const users = localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")) : []
+            var user = { username: username, password: password };
+            users.push(user)
             localStorage.setItem("users", JSON.stringify(users));
             window.location.href = "login.html";
         }
