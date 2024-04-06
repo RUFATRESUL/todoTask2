@@ -19,16 +19,14 @@
             <div class="secondElementChild">
                 <div class="topBox">
                     <div class="userLogo"><i class="fa-solid fa-user"></i></div>
-                    <h1 class="titleText">Rashad Musayev</h1>
+                    <h1 class="titleText" id="userTitle"></h1>
                     <a href="/register.html" class="logoutButton">
                         <div class="logoutIcon"><i class="fa-solid fa-arrow-right-from-bracket"></i></div>
                     </a>
                 </div>
                 <div class="search">
-
                     <input type="text" class="inputText" placeholder="Search">
                     <div>
-
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                 </div>
@@ -47,11 +45,47 @@
             </div>
             <div class="taskBox">
                 <h1>My Day</h1>
-            </div>
-            <div>
-
+                <div class="enterTask">
+                    <input type="text" id="newTaskInput" class="inputTask" placeholder="Enter a new task">
+                    <button onclick="addTask()" class="enterButton">Enter</button>
+                </div>
+                <div class="taskList" id="taskList"></div>
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const savedTasks = localStorage.getItem("savedTasks");
+            if (savedTasks) {
+                const taskList = document.getElementById("taskList");
+                taskList.innerHTML = savedTasks;
+            }
+
+            const username = localStorage.getItem("username");
+            if (username) {
+            const userTitle = document.getElementById("userTitle");
+            userTitle.textContent = username;
+    }
+        });
+
+        function addTask() {
+            const newTaskInput = document.getElementById("newTaskInput");
+            const newTask = newTaskInput.value.trim();
+            if (newTask !== "") {
+                const taskHTML = `<div>${newTask} <button onclick="deleteTask(this.parentNode)">Delete</button></div>`;
+                const taskList = document.getElementById("taskList");
+                taskList.insertAdjacentHTML("beforeend", taskHTML);
+                localStorage.setItem("savedTasks", taskList.innerHTML);
+                newTaskInput.value = "";
+            }
+        }
+
+        function deleteTask(taskElement) {
+            taskElement.remove();
+            const taskList = document.getElementById("taskList");
+            localStorage.setItem("savedTasks", taskList.innerHTML);
+        }
+    </script>
 </body>
 </html>

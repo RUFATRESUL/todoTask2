@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="/styles/login.css">
     <title>Document</title>
 </head>
@@ -17,13 +18,32 @@
         <div class="secondElement">
             <div class="secondElementChild">
                 <h1 class="titleText">Register</h1>
-                <input type="text" class="inputText" placeholder="Username">
-                <input type="password" class="inputText" placeholder="Password">
-                <button class="submitButton">Register</button>
+                <input type="text" class="inputText" id="username" placeholder="Username">
+                <input type="password" class="inputText" id="password" placeholder="Password">
+                <a href="#">
+                    <button onclick="register()" class="submitButton">Register</button>
+                </a>
                 <p>Have an account? <a href="login.html" class="login">Login</a> <br>or continue as a <a href="#" class="login">Guest</a></p>
 
             </div>
         </div>
     </div>
+
+    <script>
+        function register() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username.trim() === "" || password.trim() === "") {
+                alert("Please enter both username and password.");
+                return;
+            }
+            localStorage.removeItem("users");
+            var users = [];
+            users.push({ username: username, password: password });
+            localStorage.setItem("users", JSON.stringify(users));
+            window.location.href = "login.html";
+        }
+    </script>
 </body>
 </html>

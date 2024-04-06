@@ -76,6 +76,33 @@
        font-size: 30px;
        color: white;
 }
+.parentTaskBox .secondElement .secondElementChild .search{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 9px;
+}
+.parentTaskBox .secondElement .secondElementChild .search .inputText{
+    width: 90%;
+    height: 35px;
+    border-radius: 10px 0px 0px 10px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    padding: 6px;
+    border-right: none;
+    outline: none;
+}
+.parentTaskBox .secondElement .secondElementChild .search div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6%;
+    height: 35px;
+    border-radius: 0px 10px 10px 0px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    padding: 6px;
+    border-left: none;
+}
 .secondElement .taskBox{
     border: 1px solid black;
     border-radius: 16px;
@@ -115,4 +142,59 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #000000;
 
+}
+.parentTaskBox .secondElement .taskBox .enterTask{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+.parentTaskBox .secondElement .taskBox .enterTask .inputTask{
+    margin-bottom: 9px;
+    width: 90%;
+    height: 35px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    padding: 6px;
+    font-size: 15px;
+}
+.parentTaskBox .secondElement .taskBox .enterTask .enterButton{
+    width: 10%;
+    height: 48px;
+    border-radius: 10px;
+    background-color:green;
+    border: none;
+    padding: 6px;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left: 5px;
+}
+.parentTaskBox .secondElement .taskBox .taskList div{
+    margin-bottom: 9px;
+    width: 88.5%;
+    height: 35px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    padding: 6px;
+    font-size: 15px;
+    position: relative;
+}
+.parentTaskBox .secondElement .taskBox .taskList button{
+    width: 9%;
+    height: 50px;
+    border-radius: 10px;
+    background-color:red;
+    border: none;
+    padding: 6px;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+    margin-left: 5px;
+    position: absolute;
+    right: -88px;
+    bottom: -2px;
+    
 }

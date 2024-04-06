@@ -24,7 +24,12 @@
                         <div class="logoutIcon"><i class="fa-solid fa-arrow-right-from-bracket"></i></div>
                     </a>
                 </div>
-                <input type="text" class="inputText" placeholder="Search">
+                 <div class="search">
+                    <input type="text" class="inputText" placeholder="Search">
+                    <div>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </div>
                 <div class="menuLink">
                     <a href="/home.html">My Day</a>
                 </div>
@@ -40,6 +45,11 @@
             </div>
             <div class="taskBox">
                 <h1>Important</h1>
+                <div class="enterTask">
+                    <input type="text" id="newTaskInput" class="inputTask" placeholder="Enter a new task">
+                    <button onclick="addTask()" class="enterButton">Enter</button>
+                </div>
+                <div class="taskList" id="taskList"></div>
             </div>
             </div>
             <div>
@@ -47,5 +57,33 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const importTasks = localStorage.getItem("importTasks");
+            if (importTasks) {
+                const taskList = document.getElementById("taskList");
+                taskList.innerHTML = importTasks;
+            }
+        });
+
+        function addTask() {
+            const newTaskInput = document.getElementById("newTaskInput");
+            const newTask = newTaskInput.value.trim();
+            if (newTask !== "") {
+                const taskHTML = `<div>${newTask} <button onclick="deleteTask(this.parentNode)">Delete</button></div>`;
+                const taskList = document.getElementById("taskList");
+                taskList.insertAdjacentHTML("beforeend", taskHTML);
+                localStorage.setItem("importTasks", taskList.innerHTML);
+                newTaskInput.value = "";
+            }
+        }
+
+        function deleteTask(taskElement) {
+            taskElement.remove();
+            const taskList = document.getElementById("taskList");
+            localStorage.setItem("importTasks", taskList.innerHTML);
+        }
+    </script>
 </body>
 </html>
